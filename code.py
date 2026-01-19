@@ -86,6 +86,22 @@ pixels = neopixel.NeoPixel(board.EXTERNAL_NEOPIXELS, num_pixels, auto_write=True
 pixels.brightness = 0.8
 print(f"NeoPixels initialized (brightness: 0.8)")
 
+# onboard neopixel
+print("Initializing onboard NeoPixel...")
+onboard_pixel = neopixel.NeoPixel(board.NEOPIXEL, 1, auto_write=True)
+onboard_pixel.brightness = 0.3
+onboard_pixel[0] = RED
+print("Onboard NeoPixel: RED")
+time.sleep(1)
+onboard_pixel[0] = WHITE
+print("Onboard NeoPixel: WHITE")
+time.sleep(1)
+onboard_pixel[0] = GREEN
+print("Onboard NeoPixel: GREEN")
+time.sleep(3)
+onboard_pixel[0] = (0, 0, 0)
+print("Onboard NeoPixel turned off")
+
 # onboard LIS3DH
 print("Initializing accelerometer (LIS3DH)...")
 i2c = board.I2C()
